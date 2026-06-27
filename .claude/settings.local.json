@@ -12,7 +12,8 @@
       "Bash(.venv/Scripts/python.exe:*)",
       "Bash(python -m py_compile:*)",
       "Bash(python -m compileall:*)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
     ]
   }
 }

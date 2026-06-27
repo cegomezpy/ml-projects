@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(uv --version:*)",
+      "Bash(uv init:*)",
+      "Bash(uv sync:*)",
+      "Bash(.venv/Scripts/python.exe -m pip:*)",
+      "Bash(uv pip install:*)",
+      "Bash(UV_HTTP_TIMEOUT=300 uv pip install:*)",
+      "Bash(ls:*)",
+      "Bash(.venv/Scripts/python.exe:*)",
+      "Bash(python -m py_compile:*)",
+      "Bash(python -m compileall:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

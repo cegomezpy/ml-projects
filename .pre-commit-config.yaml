@@ -30,7 +30,7 @@ repos:
     hooks:
       - id: black
         name: Format code with Black
-        language_version: python3.10
+        language_version: python3.13
         args: ['--line-length=100']
 
   # Ruff - Fast Python linter
@@ -41,17 +41,16 @@ repos:
         name: Lint with Ruff
         args: ['--fix', '--exit-non-zero-on-fix']
 
-  # MyPy - Static type checker
-  - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: v1.13.0
+  # MyPy - Static type checker (runs in the project environment so it sees all dependencies)
+  - repo: local
     hooks:
       - id: mypy
         name: Type check with MyPy
-        additional_dependencies:
-          - types-python-dateutil
-          - pydantic
-        args: ['--config-file=pyproject.toml']
-        exclude: ^tests/
+        entry: uv run mypy src/wh_forecast
+        language: system
+        types: [python]
+        files: ^src/
+        pass_filenames: false
 
   # Check for common security issues
   - repo: https://github.com/PyCQA/bandit
@@ -65,7 +64,7 @@ repos:
 
 # Configuration
 default_language_version:
-  python: python3.10
+  python: python3.13
 
 # Files to exclude from all hooks
 exclude: |

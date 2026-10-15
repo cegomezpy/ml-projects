@@ -1,33 +1,32 @@
 [project]
-name = "ml-projects"
+name = "wh-generation-forecast"
 version = "0.1.0"
-description = "Machine Learning projects with FastAPI and DDD architecture"
+description = "Day-ahead forecast of hourly solar energy (Wh) for an EcoFlow panel setup"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
-    # FastAPI & Web Framework
-    "fastapi>=0.115.0",
-    "uvicorn[standard]>=0.32.0",
-    "pydantic>=2.10.0",
-    "pydantic-settings>=2.6.0",
-
     # Machine Learning
     "scikit-learn>=1.6.0",
     "numpy>=2.2.0",
     "pandas>=2.2.0",
-
+    "xgboost>=2.0.0",
     # Model Persistence
     "joblib>=1.4.0",
-
+    # HTTP Client
+    "httpx>=0.28.0",
+    # Data Visualization & EDA
+    "matplotlib>=3.9.0",
+    "seaborn>=0.13.0",
+    "statsmodels>=0.14.0",
     # Utilities
     "python-dotenv>=1.0.0",
+    # Web Scraping
+    "scrapy>=2.11.0",
 ]
 
 [project.optional-dependencies]
 dev = [
     "pytest>=8.3.0",
-    "pytest-asyncio>=0.24.0",
-    "httpx>=0.28.0",  # For testing FastAPI
     "black>=24.10.0",
     "ruff>=0.8.0",
     "mypy>=1.13.0",
@@ -38,23 +37,27 @@ dev = [
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
+[tool.hatch.build.targets.wheel]
+packages = ["src/wh_forecast"]
+
 [tool.black]
 line-length = 100
-target-version = ['py310']
+target-version = ['py313']
 
 [tool.ruff]
 line-length = 100
-target-version = "py310"
+target-version = "py313"
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 python_files = "test_*.py"
 python_classes = "Test*"
 python_functions = "test_*"
-asyncio_mode = "auto"
+addopts = '-m "not slow"'
+markers = ["slow: long-running tests (run with: pytest -m slow)"]
 
 [tool.mypy]
-python_version = "3.10"
+python_version = "3.13"
 warn_return_any = true
 warn_unused_configs = true
 disallow_untyped_defs = true
@@ -67,7 +70,7 @@ warn_no_return = true
 strict_equality = true
 
 [[tool.mypy.overrides]]
-module = ["sklearn.*", "joblib.*"]
+module = ["sklearn.*", "joblib.*", "pandas.*", "scrapy.*"]
 ignore_missing_imports = true
 
 [tool.bandit]

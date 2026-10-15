@@ -53,6 +53,9 @@ models/*.pt
 .coverage
 htmlcov/
 
+# Scraped Data
+data/
+
 # OS
 .DS_Store
 Thumbs.db

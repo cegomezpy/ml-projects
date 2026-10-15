@@ -1,0 +1,15 @@
+schema: spec-driven
+
+context: |
+  Python ML project (forecasting hourly Wh from an EcoFlow solar setup), uv for packages.
+  Specs and plans live only in OpenSpec. Superpowers is used only during apply:
+  test-driven development, verification before completion, and code review.
+
+operations:
+  apply:
+    guidance:
+      - Follow superpowers:test-driven-development for each task (failing test first)
+      - Run superpowers:verification-before-completion before checking off tasks
+  archive:
+    guidance:
+      - Run superpowers:requesting-code-review and verify the change before archiving

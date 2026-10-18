@@ -19,7 +19,6 @@ dependencies = [
     "seaborn>=0.13.0",
     "statsmodels>=0.14.0",
     # Utilities
-    "python-dotenv>=1.0.0",
     # Web Scraping
     "scrapy>=2.11.0",
 ]

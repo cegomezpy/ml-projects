@@ -32,12 +32,12 @@ Use test-driven development for every task (failing test first), and run verific
 
 - [x] 5.1 Delete `DEVELOPMENT_GUIDELINES.md` and `.claude/instructions.md`, add a short "Code conventions" section to `CLAUDE.md` (type hints on public functions, flow in docstrings, no numbered inline comments, no obvious comments), remove the `@.claude/instructions.md` import line, and verify `CLAUDE.md` has no dangling reference
 - [x] 5.2 Move `PRE_COMMIT_SETUP.md` to `docs/` and rewrite `README.md` for the new project (purpose, layout, setup with `uv`, how to fetch data and train), and verify the documented commands run as written
-- [ ] 5.3 Verify the root contains only config files, `README.md`, `CLAUDE.md` and the folders `src`, `scripts`, `notebooks`, `data`, `models`, `tests`, `docs`, `openspec`
+- [x] 5.3 Verify the root contains only config files, `README.md`, `CLAUDE.md` and the folders `src`, `scripts`, `notebooks`, `data`, `tests`, `docs`, `openspec` (root `models/` dropped: trained models live in `data/models/`)
 
 ## 6. Integration check
 
 - [x] 6.1 Run the full test suite, pre-commit hooks and mypy on `src/wh_forecast`, and verify all pass
-- [ ] 6.2 Run `/opsx:verify` if enabled and `superpowers:requesting-code-review`, and verify no blocking findings remain
+- [x] 6.2 Run `/opsx:verify` if enabled (not enabled) and `superpowers:requesting-code-review`, and verify no blocking findings remain
 
 <!-- Baseline (task 1.1, old layout, 2026-10-15, device cuda: NVIDIA RTX 3050 Laptop GPU)
 train_rows=45168 test_rows=4344

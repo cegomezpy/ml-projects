@@ -37,12 +37,6 @@ env/
 .env
 .env.local
 
-# ML Models (saved models)
-models/*.pkl
-models/*.joblib
-models/*.h5
-models/*.pt
-!models/.gitkeep
 
 # Jupyter Notebooks
 .ipynb_checkpoints/

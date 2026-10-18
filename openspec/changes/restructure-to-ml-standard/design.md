@@ -27,7 +27,7 @@ src/wh_forecast/
   models/          panel.py (SolarPanel), xgb_model.py, train.py
   api/             placeholder, filled by add-day-ahead-forecast
 scripts/           fetch_*.py, train_solar_model.py (thin wrappers)
-notebooks/ data/ models/ tests/ docs/ openspec/
+notebooks/ data/ tests/ docs/ openspec/   (trained models go in data/models/)
 ```
 Alternatives: keep DDD (rejected: dead weight, contradicts the chosen standard); flat `src/` without a package (rejected: brings back the `sys.path` hacks).
 
